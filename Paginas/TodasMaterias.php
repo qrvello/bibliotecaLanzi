@@ -22,19 +22,23 @@ require_once('../PHP/funciones.php');
     <center>
         <h1>Materias</h1>
         <br><br>
+        <?php $materias = mostrar();  ?>
         <table id="tabla-materias">
-            <thead>
-                <tr>
-                    <th>Número de materia</th>
-                    <th>Nombre de materia</th>
-                    <th>Año</th>
-                    <th>División</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php mostrar() ?>
-            </tbody>
+            <tr>
+                <th>Número de materia</th>
+                <th>Nombre de materia</th>
+                <th>Año</th>
+                <th>División</th>
 
+            </tr>
+            <?php foreach ($materias as $materia) { ?>
+                <tr>
+                    <td><?= $materia['id'] ?></td>
+                    <td><?= $materia['nombre'] ?></td>
+                    <td><?= $materia['año'] ?></td>
+                    <td><?= $materia['divison'] ?></td>
+                </tr>
+            <?php } ?>
         </table>
         <br><br>
         <input type="button" class="waves-effect waves-light btn" value="Contar materias" onclick="mostrar_cantidad_materias()" />

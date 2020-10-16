@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once('../PHP/funciones.php');
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,12 +16,7 @@
 	</head>
 	<body>
 		<img src="../Imagenes/imagenTodo.png" height=576px width=1920px />
-		<form>
-			<h1>
-				<center>
-					Modificación de Materias
-				</center>
-			</h1>
+			<h1><center> Modificación de Materias </center></h1>
 			<br><br>
 			<center>
 				<table class="highlight">
@@ -24,39 +24,43 @@
 						<th colspan="2">Datos de la materia</th>
 					</tr>
 					<tr>
-						<td>Número de la materia</td>
-						<td><input id="numerom" type="number" name="numerom"></td>
+						<form action="buscar.php" method="post">
+							<td>Número de la materia</td>
+							<td><input id="id" type="number" name="id" method="post" value='<?php echo $_SESSION['id'] ; ?>'  onblur="form.submit();"> </td>
+						</form>
 					</tr>
+					<form enctype="multipart/form-data" action="Update.php" method="post">
 					<tr>
 						<td>Nombre de la materia</td>
-						<td><input id="nombrem" type="text" name="nombrem"></td>
+						<td><input id="nombre" type="text" name="nombre" method="post" value='<?php echo $_SESSION['nombre'] ; ?>'  onblur="form.submit();"> </td>
 					</tr>
 					<tr>
 						<td>Logo de la materia</td>
 						<td>
-							<form>
+							
 								<div class="file-field input-field">
 								  <div class="btn">
 									<span>Subir archivo</span>
-									<input id="logom" name="logom" type="file">
+									<input id="logo" name="logo" type="file"  >
 								  </div>
 								  <div class="file-path-wrapper">
 									<input class="file-path validate" type="text">
 								  </div>
 								</div>
-							</form>
+							
 						</td>
 					</tr>
-				</table>
-				<br>
-				<button type="submit" class="btn waves-effect waves-light" onclick="Main()">
+									<button name="BotonUpdate" type="submit" class="btn waves-effect waves-light" onclick="Main()">
 					Modificar datos<i class="material-icons right">send</i>
 				</button>
+					</form>
+				</table>
+				<br>
 				<button type="reset" class="btn waves-effect waves-light">
 					Borrar datos<i class="material-icons right">delete</i>
 				</button>
 			</center>
-		</form>
+			
 		<hr size="2" width="100%" />
         <br>
         <footer class="page-footer black">
