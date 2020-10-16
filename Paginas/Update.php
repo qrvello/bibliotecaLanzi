@@ -19,7 +19,7 @@
 		if(move_uploaded_file($_FILES['logo']['tmp_name'], $directorio . $_FILES['logo']['name'])) {
 			$logo_ruta = $_FILES['logo']['name'];
 		}
-		
+
 		$query = "UPDATE materias
 		SET nombre='" . $nombre . "', logo='" . $logo_ruta . "'
 		WHERE id=".$numero.";";	
@@ -35,6 +35,6 @@
 			return $resultado;
 		}
 	} catch (Exception $e) {
-		echo "ERROR AL EJERCUTAR INSERT.";
+		echo "ERROR AL EJERCUTAR UPDATE.";
 	}
 ?>

@@ -3,7 +3,6 @@ session_start();
 require_once('../PHP/funciones.php');
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
@@ -22,23 +21,19 @@ require_once('../PHP/funciones.php');
     <center>
         <h1>Materias</h1>
         <br><br>
-        <?php $materias = mostrar();  ?>
         <table id="tabla-materias">
-            <tr>
-                <th>Número de materia</th>
-                <th>Nombre de materia</th>
-                <th>Año</th>
-                <th>División</th>
-
-            </tr>
-            <?php foreach ($materias as $materia) { ?>
+            <thead>
                 <tr>
-                    <td><?= $materia['id'] ?></td>
-                    <td><?= $materia['nombre'] ?></td>
-                    <td><?= $materia['año'] ?></td>
-                    <td><?= $materia['divison'] ?></td>
+                    <th>Número de materia</th>
+                    <th>Nombre de materia</th>
+                    <th>Año</th>
+                    <th>División</th>
                 </tr>
-            <?php } ?>
+            </thead>
+            <tbody>
+                <?php mostrar() ?>
+            </tbody>
+
         </table>
         <br><br>
         <input type="button" class="waves-effect waves-light btn" value="Contar materias" onclick="mostrar_cantidad_materias()" />

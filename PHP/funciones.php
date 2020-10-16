@@ -6,6 +6,7 @@ function conectar()
 	$user = 'santiago';
 	$password = 'riverplate';
 	$database = 'biblioteca';
+
 	$link = mysqli_connect($host, $user, $password, $database);
 
 	if (mysqli_connect_errno()) {
@@ -18,6 +19,7 @@ function conectar()
 function mostrar()
 {
 	$link = conectar();
+	
 	$query = mysqli_query($link, 'SELECT * FROM materias');
 
 	while ($materia = mysqli_fetch_assoc($query)) {
