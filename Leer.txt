@@ -1,0 +1,8 @@
+Base : prueba
+
+Tabla : persona
+        campos :
+                NrodeDocumento int
+                NombreyApellido varchar(50)
+                Edad Smallint  
+                 
