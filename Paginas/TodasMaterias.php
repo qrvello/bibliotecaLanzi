@@ -1,6 +1,9 @@
 <?php
 session_start();
-require_once('../PHP/funciones.php');
+
+require_once('../PHP/AccesoADatos.php');
+$db = new AccesoADatos();
+
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +20,8 @@ require_once('../PHP/funciones.php');
 </head>
 
 <body>
-    <img src="../Imagenes/imagenTodo.png" height=576px width=1920px />
-    <center>
+    <img src="../Imagenes/imagenTodo.png" width=100% />
+    <div class="container">
         <h1>Materias</h1>
         <br><br>
         <table id="tabla-materias">
@@ -31,29 +34,31 @@ require_once('../PHP/funciones.php');
                 </tr>
             </thead>
             <tbody>
-                <?php mostrar() ?>
+                <?php $db->mostrar_materias() ?>
             </tbody>
 
         </table>
         <br><br>
-        <input type="button" class="waves-effect waves-light btn" value="Contar materias" onclick="mostrar_cantidad_materias()" />
+        <button type="button" class="waves-effect waves-light btn" onclick="mostrar_cantidad_materias()">
+            Contar materias
+        </button>
         <br><br>
-    </center>
-    <hr size="2" width="100%" />
-    <br>
-    <footer class="page-footer black">
-        <p>Division 7° 4° año 2020
-            <br>
-            Proyecto de implementación de sitios web dinámicos
-            <br>
-            Autores:
-            <br>Curvello
-            <br>Ferreiros
-            <br>Segura
-            <br>Benavidez
-        </p>
-        <br>
-    </footer>
+
+    </div>
+
 </body>
+<footer class="page-footer black">
+    <p>Division 7° 4° año 2020
+        <br>
+        Proyecto de implementación de sitios web dinámicos
+        <br>
+        Autores:
+        <br>Curvello
+        <br>Ferreiros
+        <br>Segura
+        <br>Benavidez
+    </p>
+    <br>
+</footer>
 
 </html>
