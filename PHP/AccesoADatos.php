@@ -20,7 +20,6 @@ class AccesoADatos
     public function mostrar_materias()
     {
         $query = $this->query("CALL MostrarMaterias()");
-
         while ($materia = mysqli_fetch_assoc($query)) {
             echo '<tr>';
             echo '<td>' . $materia['id'] . '</td>';
